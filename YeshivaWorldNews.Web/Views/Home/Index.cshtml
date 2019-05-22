@@ -1,0 +1,149 @@
+﻿@using YeshivaWorldNews.Data
+@model IEnumerable<News>
+
+
+<div class="row">
+
+    <div class="col-md-8">
+        @foreach (News n in Model.Where(n => n.Status == Status.Head))
+        {
+            <div class="col-md-12" style="margin-bottom: 75px">
+                <img style="width: 100%" src="@n.Image" />
+                <br />
+                <h2><a href="@n.Url">@n.Title</a></h2>
+                <h7>Posted on: @n.Date</h7>
+            </div>
+            <hr />
+        }
+        <div style="margin-bottom: 100px" class="col-md-12">
+            @foreach (News n in Model.Where(n => n.Status == Status.HeadSmall).Take(2))
+            {
+                <div class="col-md-6">
+                    <img style="width: 100%" src="@n.Image" />
+                    <br />
+                    <h3><a href="@n.Url">@n.Title</a></h3>
+                    <h7>Posted on: @n.Date</h7>
+                </div>
+
+            }
+        </div>
+        <div class="col-md-12">
+            <hr />
+            <button class="btn btn-block btn-primary">Latest News</button>
+            <br />
+            @foreach (News n in Model.Where(n => n.Status == Status.Main))
+            {
+            <div>
+                <div style="float: left;" class="text-center">
+                    <img src="@n.Image" style="max-height: 300px; max-width: 225px" />
+                </div>
+                <div style="margin-left: 250px; height:250px">
+                    <h3><a target="_blank" href="@n.Url">@n.Title</a></h3>
+                    <span>Posted on: @n.Date</span>
+                    <h4><p>@n.Content</p></h4>
+                </div>
+            </div>
+                <br />
+            }
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="col-md-12">
+
+
+            @foreach (News n in Model.Where(n => n.Status == Status.SideSmall).Take(1))
+            {
+                <button class="btn btn-block btn-primary">Most Popular Articles</button>
+                <br />
+                <div>
+                    <img style="width: 100%" src="@n.Image" />
+                    <br />
+                    <h4><a href="@n.Url">@n.Title</a></h4>
+                    <h7>Posted on: @n.Date</h7>
+                </div>
+                <br />
+            }
+
+
+            @foreach (News n in Model.Where(n => n.Status == Status.SideHead).Take(4))
+            {
+                <div style="width: 100%; display: table">
+                    <div style="display: table-row">
+                        <div style="display: table-cell" class="text-center">
+                            <img src="@n.Image" style="margin-right: 20px" />
+                        </div>
+
+                        <div style="display: table-cell; height:75px">
+                            <h5><a target="_blank" href="@n.Url">@n.Title</a></h5>
+                            <span>Posted on: @n.Date</span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+            <hr />
+            @foreach (News n in Model.Where(n => n.Status == Status.SideSmall).Skip(1).Take(1))
+            {
+                <button style="margin-top: 150px" class="btn btn-block btn-primary">Latest Videos</button>
+                <br />
+                <div>
+                    <img style="width: 100%" src="@n.Image" />
+                    <br />
+                    <h4><a href="@n.Url">@n.Title</a></h4>
+                    <h7>Posted on: @n.Date</h7>
+                </div>
+                <br />
+            }
+
+
+            @foreach (News n in Model.Where(n => n.Status == Status.SideHead).Skip(4).Take(4))
+            {
+                <div style="width: 100%; display: table">
+                    <div style="display: table-row">
+                        <div style="display: table-cell" class="text-center">
+                            <img src="@n.Image" style="margin-right: 20px" />
+                        </div>
+
+                        <div style="display: table-cell; height:75px">
+                            <h5><a target="_blank" href="@n.Url">@n.Title</a></h5>
+                            <h7>Posted on: @n.Date</h7>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+            <hr />
+            @foreach (News n in Model.Where(n => n.Status == Status.SideSmall).Skip(2).Take(1))
+            {
+                <button style="margin-top: 150px" class="btn btn-block btn-primary">Latest Photos</button>
+                <br />
+                <div>
+                    <img style="width: 100%" src="@n.Image" />
+                    <br />
+                    <h4><a href="@n.Url">@n.Title</a></h4>
+                    <h7>Posted on: @n.Date</h7>
+                </div>
+                <br />
+            }
+
+
+            @foreach (News n in Model.Where(n => n.Status == Status.SideHead).Skip(8).Take(4))
+            {
+                <div style="width: 100%; display: table">
+                    <div style="display: table-row">
+                        <div style="display: table-cell" class="text-center">
+                            <img src="@n.Image" style="margin-right: 20px" />
+                        </div>
+
+                        <div style="display: table-cell; height:75px">
+                            <h5><a target="_blank" href="@n.Url">@n.Title</a></h5>
+                            <h7>Posted on: @n.Date</h7>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+        </div>
+    </div>
+</div>
